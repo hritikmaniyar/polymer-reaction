@@ -107,10 +107,26 @@ function shortestpolymer() {
                 mini=value.length;
             }
         }
-        res=reverseString(res);
+        var c1=0, c2=0;
+        for(let i=0;i<input.length;i++){
+            if (input[i] == input[i].toUpperCase()) {
+                c1++;
+             }
+        }
+        for(let i=0;i<input.length;i++){
+            if (input[i] == input[i].toLowerCase()) {
+                c2++;
+             }
+        }
+        if(c1==input.length || c2==input.length){res=input;}
+        else{res=reverseString(res);}
         alert("Length of shortest polymer is: "+res.length+" and the polymer is: "+res);
     }
 }
 function reverseString(str) {
-    return str.split("").reverse().join("");
+    let newString = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        newString += str[i];
+    }
+    return newString;
 }
